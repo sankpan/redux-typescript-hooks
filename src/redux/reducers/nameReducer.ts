@@ -6,7 +6,11 @@ type NameState = {
 
 const initialState: NameState = { name: "" };
 
-const NameReducer = (state: NameState = initialState, action: NameActions) => {
+//important: return type is very helpful to avoid 'never'
+const NameReducer = (
+  state: NameState = initialState,
+  action: NameActions
+): NameState => {
   switch (action.type) {
     case "SET_NAME":
       return { ...state, name: action.payload };
